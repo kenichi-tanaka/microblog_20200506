@@ -1,0 +1,16 @@
+{% extends 'blog/base.html' %}
+
+
+{% block content %}
+    <h1>新規作成</h1>
+
+    <form method="POST">
+    {% csrf_token %}
+        <table class="teble">
+            {{ form }}
+        </table>
+
+        <button class="btn-primary" type="submit">送信</button>
+    </form>
+
+{% endblock %} 

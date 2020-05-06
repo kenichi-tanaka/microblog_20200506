@@ -1,0 +1,11 @@
+{% extends "blog/base.html" %} {% block content %}
+
+<h1>削除の確認</h1>
+<p class="text text-denger">本当に削除してもよろしいですか？</p>
+<form action="" method="POST">
+  {% csrf_token %}
+
+  <button type="submit" class="btn btn-danger">削除</button>
+  <a href="{% url 'blog:index' %}" class="btn btn-default">キャンセル</a>
+</form>
+{% endblock %}

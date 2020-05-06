@@ -1,0 +1,25 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+<p><a href="{% url 'blog:create' %}" class="btn btn-info">New</a></p>
+{% endif %}
+
+<div class="row">
+  <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+    {% for blog in object_list %}
+      <div class="post-preview">
+          <a href="{% url 'blog:detail' blog.pk %}">
+              <h2 class="post-title">
+                {{ blog.content }}
+              </h2>
+          </a>
+          <p class="post-meta">{{ blog.posted_date }}</p>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+{% include 'blog/page.html' %} 
+
+{% endblock %}
